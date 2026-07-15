@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|c:\\users\\usuario\\desktop\\proyecto casta\\version 4\\turismo-master\\appmarcahuasi\\utils\\parametros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|solutionrelative:appmarcahuasi\\utils\\parametros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\appmarcahuasi\\infraestructura\\vistaadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|solutionrelative:appmarcahuasi\\infraestructura\\vistaadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\appmarcahuasi\\infraestructura\\vistaprincipal.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2E6676-9879-4A90-8D9C-3F3D36D99D27}|AppMarcahuasi\\AppMarcahuasi.csproj|solutionrelative:appmarcahuasi\\infraestructura\\vistaprincipal.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VistaAdministrador.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Infraestructura\\VistaAdministrador.aspx.cs",
+              "RelativeDocumentMoniker": "AppMarcahuasi\\Infraestructura\\VistaAdministrador.aspx.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Infraestructura\\VistaAdministrador.aspx.cs",
+              "RelativeToolTip": "AppMarcahuasi\\Infraestructura\\VistaAdministrador.aspx.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAuwOEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T22:51:50.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VistaPrincipal.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Infraestructura\\VistaPrincipal.aspx.cs",
+              "RelativeDocumentMoniker": "AppMarcahuasi\\Infraestructura\\VistaPrincipal.aspx.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Infraestructura\\VistaPrincipal.aspx.cs",
+              "RelativeToolTip": "AppMarcahuasi\\Infraestructura\\VistaPrincipal.aspx.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAAAMwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T22:48:08.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Parametros.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Utils\\Parametros.cs",
+              "RelativeDocumentMoniker": "AppMarcahuasi\\Utils\\Parametros.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Proyecto Casta\\Version 4\\Turismo-master\\AppMarcahuasi\\Utils\\Parametros.cs",
+              "RelativeToolTip": "AppMarcahuasi\\Utils\\Parametros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T03:30:22.102Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
