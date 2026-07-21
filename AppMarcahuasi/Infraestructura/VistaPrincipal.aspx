@@ -354,6 +354,36 @@
                 color: #e2e8f0;
                 border: 1px solid var(--border-color);
             }
+            .floating-buscar {
+                position: fixed;
+                bottom: 80px;
+                left: 20px;
+                background-color: var(--primary-color);
+                color: #ffffff;
+                padding: 12px 20px;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 1.15rem;
+                font-weight: 600;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                z-index: 1000;
+                transition: transform 0.2s, background-color 0.2s;
+                cursor: default;
+            }
+
+            .floating-buscar:hover {
+                background-color: var(--primary-hover);
+                transform: translateY(-3px);
+                cursor:pointer;
+            }
+
+            body.dark-mode .floating-buscar {
+                background-color: #1e1e1e;
+                color: #e2e8f0;
+                border: 1px solid var(--border-color);
+            }
 
             .floating-user {
                 position: fixed;
@@ -462,6 +492,30 @@
                     title: "Oops... Algo salió mal",
                     html: `<small style="font-size:20px">` + texto + `</small>`
                 });
+            }
+            function errorBuscar(texto) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops... Ingrese todos los datos",
+
+                    html: `<small style="font-size:20px">` + texto + `</small>`
+                });
+            }
+            //-------------------------------mensaje de error al buscar turista--------------------------
+            function MensajeErrorBuscar() {
+                const Nombre = document.getElementById('txtNombre')?.value;
+                const Apellido = document.getElementById('txtApellido')?.value;
+
+                let mensajeError = "";
+                if (Nombre.trim() == "")
+                    mensajeError += "*Ingrese el nombre ";
+                if (Apellido.trim() == "")
+                    mensajeError += "*Ingrese el apellido";
+
+                if (mensajeError != "") {
+                    errorBuscar(mensajeError);
+                    return;
+                }
             }
 
             //-------------------------------configuracion para la impresion terminca--------------------------
@@ -655,6 +709,33 @@
                     btn.removeAttribute("onclick");
                     btn.style.color = "red";
                 });
+            }
+            function buscarTurista() {
+
+                let nombre = document.getElementById("txtNombre").value;
+                let apellido = document.getElementById("txtApellido").value;
+
+                let tbody = document.querySelector("#tablaTuristas tbody");
+
+                tbody.innerHTML = `
+                <tr>
+                    <td>1</td>
+                    <td>${nombre}</td>
+                    <td>${apellido}</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            `;
+            }
+            function limpiarBusquedaTurista() {
+                document.getElementById("txtNombres").value = "";
+                document.getElementById("txtApellidos").value = "";
+                document.getElementById("lblResultadoBusqueda").style.display = "none";
+
+                var grid = document.getElementById("gvBuscarTurista");
+                if (grid) {
+                    grid.style.display = "none";
+                }
             }
 
             document.addEventListener('DOMContentLoaded', () => {
@@ -877,7 +958,7 @@
                 </div>
             </div>
 
-        </form>
+        
 
         <!----------- SOPORTE TECNICO INICIO ----------->
         <div class="floating-support" title="Llámanos si necesitas ayuda">
@@ -892,7 +973,54 @@
         </div>
         <!----------- SOPORTE TECNICO FIN ----------->
 
+        <!----------- BUSCAR TURISTA INICIO ----------->
+         <button type="button" class="btn btn-primary floating-buscar" data-bs-toggle="modal" data-bs-target="#modalBuscarTurista" onclick="limpiarBusquedaTurista()">
+            Buscar Turista
+        </button>
 
+        <div class="modal fade" id="modalBuscarTurista" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Buscar Turista</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nombres</label>
+                                <asp:TextBox ID="txtNombres"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Ingrese nombres">
+                                </asp:TextBox>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Apellidos</label>
+                                <asp:TextBox ID="txtApellidos" runat="server"  CssClass="form-control"  placeholder="Ingrese apellidos">
+                                </asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="text-end">
+                            <asp:Button ID="btnBuscarTurista"  runat="server"  Text="Buscar" CssClass="btn btn-success" OnClick="btnBuscarTurista_Click" />
+                        </div>
+                        <hr />
+                        <asp:Label ID="lblResultadoBusqueda" runat="server" style="display:none; text-align:center; color:red; font-size:22px; font-weight:bold;"></asp:Label>
+                        <asp:GridView ID="gvBuscarTurista" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
+                                <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
+                                <asp:BoundField DataField="Nacionalidad" HeaderText="Nacionalidad" />
+                                <asp:BoundField DataField="Fecha_Registro" HeaderText="Fecha_Registro" DataFormatString="{0:dd/MM/yyyy hh:mm tt}" HtmlEncode="false" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                </div>
+            </div>
+        </div>
+                 <!----------- BUSCAR TURISTA FIN ----------->
+            </form>
         <!----------- USUARIO LOGUEADO INICIO ----------->
         <div id="ContEmplAsig" runat="server" class="floating-user" title="Usuario conectado" visible="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

@@ -6,6 +6,7 @@ using DocumentFormat.OpenXml.Math;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,8 @@ namespace AppMarcahuasi.Infraestructura
 {
     public partial class VistaPrincipal : System.Web.UI.Page
     {
+        Logica objTurista = new Logica();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -207,6 +210,64 @@ namespace AppMarcahuasi.Infraestructura
             {
                 string mensajeSeguro = HttpUtility.JavaScriptStringEncode(ex.Message);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "msg", $"errorTicket('{mensajeSeguro}');", true);
+            }
+        }
+
+        protected void btnBuscarTurista_Click(object sender, EventArgs e)
+        {
+            string nombres = txtNombres.Text.Trim();
+            string apellidos = txtApellidos.Text.Trim();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(nombres) || string.IsNullOrWhiteSpace(apellidos))
+                {
+                    gvBuscarTurista.DataSource = new DataTable();
+                    gvBuscarTurista.DataBind();
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        GetType(),
+                        "Validacion",
+                        "errorBuscar('Debe ingresar Nombres y Apellidos');",
+                        true);
+
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        GetType(),
+                        "AbrirModal",
+                        "var modal = new bootstrap.Modal(document.getElementById('modalBuscarTurista')); modal.show();",
+                        true);
+
+                    return;
+                }
+
+                DataTable dt = objTurista.BuscarTurista(nombres, apellidos);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    gvBuscarTurista.DataSource = dt;
+                    gvBuscarTurista.DataBind();
+                    lblResultadoBusqueda.Style["display"] = "none";
+                }
+                else
+                {
+                    lblResultadoBusqueda.Text = "No se encontró ningún registro";
+                    lblResultadoBusqueda.Style["display"] = "block";
+                }
+
+                ScriptManager.RegisterStartupScript(
+                    this,
+                    GetType(),
+                    "AbrirModal",
+                    "var modal = new bootstrap.Modal(document.getElementById('modalBuscarTurista')); modal.show();",
+                    true);
+
+            }
+            catch (Exception ex)
+            {
+                string mensajeSeguro = HttpUtility.JavaScriptStringEncode(ex.Message);
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "msg",
+                    $"errorBuscar('{mensajeSeguro}');", true);
             }
         }
     }

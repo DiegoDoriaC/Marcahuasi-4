@@ -194,5 +194,23 @@ namespace AppMarcahuasi.Procedimientos
                 throw;
             }
         }
+
+        public DataTable BuscarTurista(string nombres, string apellidos)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection con = new SqlConnection(_cadena))
+            using (SqlCommand oCm = new SqlCommand("sp_BuscarTurista", con))
+            {
+                oCm.CommandType = CommandType.StoredProcedure;
+
+                oCm.Parameters.Add("@Nombres", SqlDbType.VarChar, 40).Value = nombres;
+                oCm.Parameters.Add("@Apellidos", SqlDbType.VarChar, 40).Value = apellidos;
+
+                SqlDataAdapter da = new SqlDataAdapter(oCm);
+                da.Fill(dt);
+            }
+            return dt;
+        }
     }
 }
